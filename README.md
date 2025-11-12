@@ -2,13 +2,12 @@
 
 
 ## Layout
-### Need to be able to make a recipe
-### Book Object
-### Recipe Object
+Need to be able to make a recipe
+Book Object
+Recipe Object
 ## Ingredients object
-### Common Ingredients
-### Misc ingredients
-### Ingredients interface?
+ Common Ingredients
+ Misc ingredients  interface?
 
 ### Convert to csv jsn sql?
 
