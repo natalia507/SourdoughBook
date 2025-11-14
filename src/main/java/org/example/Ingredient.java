@@ -13,39 +13,38 @@ public class Ingredient {
     );
 
     //Fields
-    private String name;
+    private final String name;
 
     private double cups;
 
     private double grams;
 
-    private double gramsToCupRatio;
-
     //Constructor
     public Ingredient(String name, String measurement, double amount){
         this.name = name;
-        Double ratio = DEFAULT_RATIOS.get(name.toLowerCase());
+        double gramsToCupRatio = DEFAULT_RATIOS.get(name.toLowerCase());
 
         if (measurement.equalsIgnoreCase("cups")){
             this.cups = amount;
-            this.grams =  amount*ratio;
+            this.grams =  amount* gramsToCupRatio;
         } else if (measurement.equalsIgnoreCase("grams")){
             this.grams = amount;
-            this.cups = amount/ratio;
+            this.cups = amount/ gramsToCupRatio;
         }
     }
 
     //Methods
 
     public String toString(){
-        return null;
+        String HedgeCase = this.name.substring(0,1).toUpperCase() + this.name.substring(1).toLowerCase();
+        return HedgeCase + ": " + this.cups +"c, " + (int) this.grams + "g";
     }
 
-    public float getCups(){
-        return 0;
+    public double getCups(){
+        return this.cups;
     }
 
-    public float getGrams(){
-        return 0;
+    public double getGrams(){
+        return this.grams;
     }
 }

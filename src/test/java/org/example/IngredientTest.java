@@ -34,7 +34,7 @@ public class IngredientTest {
     @Test
     void getGramsNotProvided(){
         Ingredient ingredient = new Ingredient("flour", "cups", 2.5);
-        assertEquals(230, ingredient.getGrams());
+        assertEquals(300, ingredient.getGrams());
     }
 
 }
