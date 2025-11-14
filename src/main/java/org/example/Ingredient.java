@@ -9,29 +9,29 @@ public class Ingredient {
             "water", 237.0,
             "salt", 288.0,
             "starter", 240.0,
-            "sugar", 200
+            "sugar", 200.0
     );
 
     //Fields
     private String name;
 
-    private float cups;
+    private double cups;
 
-    private float grams;
+    private double grams;
 
     private double gramsToCupRatio;
 
     //Constructor
-    private Ingredient (String name, String measurement, float amount){
+    public Ingredient(String name, String measurement, double amount){
         this.name = name;
         Double ratio = DEFAULT_RATIOS.get(name.toLowerCase());
 
         if (measurement.equalsIgnoreCase("cups")){
             this.cups = amount;
-            this.grams = (float) (amount*ratio);
+            this.grams =  amount*ratio;
         } else if (measurement.equalsIgnoreCase("grams")){
             this.grams = amount;
-            this.cups = (float) (amount/ratio);
+            this.cups = amount/ratio;
         }
     }
 
