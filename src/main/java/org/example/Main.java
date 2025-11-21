@@ -107,8 +107,22 @@ public class Main {
                         ingredients.add(new Ingredient(ingredientName, measurementType, amount));
                     }
                     IO.println("Please enter the instructions");
-                    String instructions = scanner.nextLine();
-                    Recipe recipe = new Recipe(title, ingredients, instructions);
+                    StringBuilder instructions = new StringBuilder();
+
+                    System.out.println("Enter multiple lines of text (type 'DONE' on a new line to finish):");
+
+                    String line;
+                    while (scanner.hasNextLine()) { // Check if there's another line
+                        line = scanner.nextLine();
+                        if (line.equalsIgnoreCase("DONE")) { // User signals end of input
+                            break;
+                        }
+                        instructions.append(line).append("\n"); // Append line and a newline character
+                    }
+
+
+                    Recipe recipe = new Recipe(title, ingredients, instructions.toString());
+
 
                     service.addRecipe(recipe);
 
